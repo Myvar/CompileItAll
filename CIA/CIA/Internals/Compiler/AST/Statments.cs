@@ -7,7 +7,36 @@ using System.Threading.Tasks;
 
 namespace CIA.Internals.Compiler.AST
 {
-    public  class Statments : IAst
+    public class Statment : IAst
     {
+        public string Token { get; set; }
     }
+
+    #region Statments
+
+    public class VarSetExpressionStatment : Statment
+    {
+        public string Name { get; set; }
+        public string SetOP { get; set; }
+        public string Value { get; set; }
+        public string Type { get; set; }
+
+        public VarSetExpressionStatment()
+        {
+            Token = "VarSetExpressionStatment";
+        }
+    }
+
+    public class UsingStatment : Statment
+    {
+        public string Name { get; set; }
+
+
+        public UsingStatment()
+        {
+            Token = "UsingStatment";
+        }
+    }
+
+    #endregion
 }

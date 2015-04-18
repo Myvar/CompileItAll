@@ -448,7 +448,7 @@ namespace Eto.Parse.Grammars
 
 			if (!match.Success)
 			{
-				throw new FormatException(string.Format("Error parsing ebnf: \n{0}", match.ErrorMessage));
+				 throw new FormatException(string.Format("Error parsing ebnf: \n{0}", match.ErrorMessage));
 			}
 			if (!parserLookup.TryGetValue(startParserName, out parser))
 				throw new ArgumentException("the topParser specified is not found in this ebnf");

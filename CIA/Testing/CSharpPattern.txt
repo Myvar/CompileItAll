@@ -1,0 +1,41 @@
+﻿ws := { (? Terminals.WhiteSpace ?) | "\n" } 
+letter := "A" | "B" | "C" | "D" | "E" | "F" | "G"
+       | "H" | "I" | "J" | "K" | "L" | "M" | "N"
+       | "O" | "P" | "Q" | "R" | "S" | "T" | "U"
+       | "V" | "W" | "X" | "Y" | "Z" | "a" | "b" | "c" | "d" | "e" | "f" | "g"
+       | "h" | "i" | "j" | "k" | "l" | "m" | "n"
+       | "o" | "p" | "q" | "r" | "s" | "t" | "u"
+       | "v" | "w" | "x" | "y" | "z" 
+digit := "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" 
+symbol := "[" | "]" | "{" | "}" | "(" | ")" | "<" | ">"
+       | """ | """ | "=" | "|" | "." | " " | "" 
+character := letter | digit | symbol | "_" 
+letterordigit :=  digit | letter
+AnyChar :=  character  { character }
+Name := letter {letterordigit}
+Identifier := Name
+KeyWords := "public" | "void" | "static" | "class"
+
+Header := ws MethodHeader ws
+Perameter := Name
+MethodHeader := ws  {ws KeyWords ws}  ws  Identifier  ws "(" ws [ Perameter {ws "," Perameter ws} ] ws ")" ws
+MethodCodeBlock := ws Header "{"  ws  { ws CodeBlock | Statment ws }  ws "}"  ws
+
+CodeBlock := MethodCodeBlock
+
+Value := String | Int
+
+Int := [ "-" ] digit { digit }
+String := '"' AnyChar '"'
+
+Statment := ExpressionStatment
+ExpressionStatment :=  VarSetExpressionStatment | UsingStatment
+Type := Name
+SetOperators := "+=" | "-=" | "="
+SemiColon := ";"
+VarSetExpressionStatment := ws ("var" | Type) ws  Identifier  ws SetOperators ws  Value ws SemiColon
+UsingStatment := ws "using" ws  Identifier {Identifier ["."]} ws SemiColon
+
+
+
+grammar := ws {ws CodeBlock | Statment ws} ws

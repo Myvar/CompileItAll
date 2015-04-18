@@ -39,12 +39,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CompilerLLVM.cs" />
+    <Compile Include="CompilerCLI.cs" />
     <Compile Include="ICompiler.cs" />
     <Compile Include="Internals\Compiler\AST\Base\IAst.cs" />
-    <Compile Include="Internals\Compiler\AST\CB\Headers.cs" />
-    <Compile Include="Internals\Compiler\AST\CodeBlock.cs" />
+    <Compile Include="Internals\Compiler\AST\CodeBlocks.cs" />
     <Compile Include="Internals\Compiler\AST\Statments.cs" />
+    <Compile Include="Internals\Compiler\Parser.cs" />
     <Compile Include="Internals\Compiler\ParserEnigne\FluentExtensions.cs" />
     <Compile Include="Internals\Compiler\ParserEnigne\Grammar.cs" />
     <Compile Include="Internals\Compiler\ParserEnigne\GrammarMatch.cs" />
@@ -136,6 +136,7 @@
     <Compile Include="Internals\Compiler\ParserEnigne\Writers\Display\ParserWriter.cs" />
     <Compile Include="Internals\Compiler\ParserEnigne\Writers\Display\RepeatWriter.cs" />
     <Compile Include="Internals\Compiler\ParserEnigne\Writers\Display\UnaryWriter.cs" />
+    <Compile Include="Internals\Compiler\Scaner.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
