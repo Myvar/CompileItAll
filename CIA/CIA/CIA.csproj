@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{19DFC80C-81C7-4E4E-A6CA-7BA6EB1A7288}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CIA</RootNamespace>
+    <AssemblyName>CIA</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CompilerLLVM.cs" />
+    <Compile Include="ICompiler.cs" />
+    <Compile Include="Internals\Compiler\AST\Base\IAst.cs" />
+    <Compile Include="Internals\Compiler\AST\CB\Headers.cs" />
+    <Compile Include="Internals\Compiler\AST\CodeBlock.cs" />
+    <Compile Include="Internals\Compiler\AST\Statments.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\FluentExtensions.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\Grammar.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\GrammarMatch.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\Grammars\BnfGrammar.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\Grammars\EbnfGrammar.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\Grammars\GoldDefinition.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\Grammars\GoldGrammar.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\InternalExtensions.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\InverseParser.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\ISeparatedParser.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\ListParser.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\Match.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\ParseArgs.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\Parser.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\Parser.operators.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\ParserChain.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\ParserChildrenArgs.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\ParserCloneArgs.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\ParserContainsArgs.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\ParserFindArgs.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\ParserInitializeArgs.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\Parsers\AlternativeParser.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\Parsers\AnyCharTerminal.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\Parsers\AnySurrogatePairTerminal.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\Parsers\BooleanTerminal.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\Parsers\CharRangeTerminal.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\Parsers\CharSetTerminal.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\Parsers\CharTerminal.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\Parsers\ControlTerminal.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\Parsers\DigitTerminal.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\Parsers\EmptyParser.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\Parsers\EndParser.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\Parsers\EolTerminal.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\Parsers\ExceptParser.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\Parsers\GroupParser.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\Parsers\HexDigitTerminal.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\Parsers\LetterOrDigitTerminal.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\Parsers\LetterTerminal.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\Parsers\LiteralTerminal.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\Parsers\LookAheadParser.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\Parsers\NumberParser.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\Parsers\OptionalParser.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\Parsers\PunctuationTerminal.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\Parsers\RepeatCharTerminal.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\Parsers\RepeatParser.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\Parsers\SequenceParser.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\Parsers\SingleCharTerminal.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\Parsers\SingleLineWhiteSpaceTerminal.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\Parsers\SingleSurrogatePairTerminal.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\Parsers\StartParser.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\Parsers\StringParser.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\Parsers\SurrogatePairRangeTerminal.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\Parsers\SurrogatePairTerminal.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\Parsers\SymbolTerminal.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\Parsers\TagParser.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\Parsers\UntilParser.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\Parsers\WhiteSpaceTerminal.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\ParserWriter.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\ParserWriterArgs.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\Scanner.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\Scanners\StringScanner.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\SlimStack.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\Terminals.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\TextParserWriter.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\TextParserWriterArgs.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\UnaryParser.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\Writers\CodeParserWriter.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\Writers\Code\BooleanWriter.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\Writers\Code\CharRangeWriter.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\Writers\Code\CharSetWriter.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\Writers\Code\CharWriter.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\Writers\Code\ExceptWriter.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\Writers\Code\GrammarWriter.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\Writers\Code\GroupWriter.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\Writers\Code\InverseWriter.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\Writers\Code\ListWriter.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\Writers\Code\LiteralWriter.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\Writers\Code\NumberWriter.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\Writers\Code\ParserWriter.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\Writers\Code\RepeatWriter.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\Writers\Code\SequenceWriter.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\Writers\Code\SingleCharWriter.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\Writers\Code\StringWriter.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\Writers\Code\TagWriter.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\Writers\Code\UnaryWriter.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\Writers\DisplayParserWriter.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\Writers\Display\ListWriter.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\Writers\Display\LiteralWriter.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\Writers\Display\ParserWriter.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\Writers\Display\RepeatWriter.cs" />
+    <Compile Include="Internals\Compiler\ParserEnigne\Writers\Display\UnaryWriter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="Internals\Compiler\ParserEnigne\LICENSE" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
