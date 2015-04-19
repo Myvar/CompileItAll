@@ -18,8 +18,10 @@ namespace Testing
 public static void Main(args)
 {
 using System;
+using System.Windows.Forms;
 let b = {quot}wow{quot};
 let d = {quot}lol{quot};
+MessageBox.Show(b);
 Console.WriteLine(d);
 
 }";

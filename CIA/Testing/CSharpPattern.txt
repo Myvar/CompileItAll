@@ -34,7 +34,8 @@ Type := Name
 SetOperators := "+=" | "-=" | "="
 SemiColon := ";"
 VarSetExpressionStatment := ws ("var" | Type) ws  Identifier  ws SetOperators ws  Value ws SemiColon
-UsingStatment := ws "using" ws  Identifier {Identifier ["."]} ws SemiColon
+
+UsingStatment := ws "using" ws  Path ws SemiColon
 Path := [ Name {ws "." Name ws} ]
 CallStatment := ws  Path  ws "(" ws [ Perameter {ws "," Perameter ws} ] ws ")" ws SemiColon
 
