@@ -15,13 +15,15 @@ namespace Testing
             var cp = new CompilerCLI();
             string code = @"
 
-public static void main(args)
+public static void Main(args)
 {
 using System;
 let b = {quot}wow{quot};
+let d = {quot}lol{quot};
+Console.WriteLine(d);
 
 }";
-
+            
             cp.Compile(code.Replace("{quot}", "\""), "test.exe", Properties.Resources.CSharpPattern);
         }
 

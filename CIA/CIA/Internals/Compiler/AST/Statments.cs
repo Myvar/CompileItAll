@@ -37,6 +37,16 @@ namespace CIA.Internals.Compiler.AST
             Token = "UsingStatment";
         }
     }
+    public class CallStatment : Statment
+    {
+        public string Path { get; set; }
+        public List<string> Permas { get; set; }
 
+        public CallStatment()
+        {
+            Token = "CallStatment";
+            Permas = new List<string>();
+        }
+    }
     #endregion
 }
